@@ -33,8 +33,9 @@ class Search extends Component {
         const debounced = keyUP.pipe(debounceTime(500));
         // eslint-disable-next-line
         const subscribe = debounced.subscribe(val => {
-            console.log('Only nwo');
-            this.props.search(val);
+            if (val) {
+                this.props.search(val);
+            }
         });
     }
     handleChange(event) {
