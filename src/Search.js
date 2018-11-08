@@ -26,17 +26,20 @@ class Search extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.subscribe = null;
     }
     componentDidMount() {
         const search = document.getElementById('search');
         const keyUP = fromEvent(search, 'keyup').pipe(map(i => i.currentTarget.value));
         const debounced = keyUP.pipe(debounceTime(500));
-        // eslint-disable-next-line
-        const subscribe = debounced.subscribe(val => {
+        this.subscribe = debounced.subscribe(val => {
             if (val) {
                 this.props.search(val);
             }
         });
+    }
+    componentWillUnmount() {
+        this.subscribe.unsubscribe();
     }
     handleChange(event) {
         this.setState({ search: event.target.value });

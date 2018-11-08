@@ -91,7 +91,7 @@ class Profile extends React.Component {
                         <br />
                         <List className={classes.list}>
                             <ListItem>
-                                <ListItemText divider>
+                                <ListItemText>
                                     <Typography variant='subheading' style={{ float: 'left' }}>
                                         {'Username:'}
                                     </Typography>
@@ -102,7 +102,7 @@ class Profile extends React.Component {
                             </ListItem>
                             <Divider />
                             <ListItem>
-                                <ListItemText divider>
+                                <ListItemText>
                                     <Typography variant='subheading' style={{ float: 'left' }}>
                                         {'Company:'}
                                     </Typography>
@@ -113,7 +113,7 @@ class Profile extends React.Component {
                             </ListItem>
                             <Divider />
                             <ListItem>
-                                <ListItemText divider>
+                                <ListItemText>
                                     <Typography variant='subheading' style={{ float: 'left' }}>
                                         {'Location:'}
                                     </Typography>
@@ -124,7 +124,7 @@ class Profile extends React.Component {
                             </ListItem>
                             <Divider />
                             <ListItem>
-                                <ListItemText divider>
+                                <ListItemText>
                                     <Typography variant='subheading' style={{ float: 'left' }}>
                                         {'E-Mail:'}
                                     </Typography>
@@ -135,7 +135,7 @@ class Profile extends React.Component {
                             </ListItem>
                             <Divider />
                             <ListItem>
-                                <ListItemText divider>
+                                <ListItemText>
                                     <Typography variant='subheading' style={{ float: 'left' }}>
                                         {'Public Repos:'}
                                     </Typography>
@@ -146,7 +146,7 @@ class Profile extends React.Component {
                             </ListItem>
                             <Divider />
                             <ListItem>
-                                <ListItemText divider>
+                                <ListItemText>
                                     <Typography variant='subheading' style={{ float: 'left' }}>
                                         {'Followers:'}
                                     </Typography>
