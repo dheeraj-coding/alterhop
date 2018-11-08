@@ -4,6 +4,8 @@ import {
     TextField,
     Button,
 } from '@material-ui/core';
+import { fromEvent } from 'rxjs';
+import { debounceTime, map } from 'rxjs/operators';
 
 const styles = (theme) => ({
     root: {
@@ -25,10 +27,18 @@ class Search extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
-    handleChange(event) {
-        this.setState({ search: event.target.value }, () => {
-            this.props.search(this.state.search);
+    componentDidMount() {
+        const search = document.getElementById('search');
+        const keyUP = fromEvent(search, 'keyup').pipe(map(i => i.currentTarget.value));
+        const debounced = keyUP.pipe(debounceTime(500));
+        // eslint-disable-next-line
+        const subscribe = debounced.subscribe(val => {
+            console.log('Only nwo');
+            this.props.search(val);
         });
+    }
+    handleChange(event) {
+        this.setState({ search: event.target.value });
     }
     handleClick(event) {
         this.props.search(this.state.search);
