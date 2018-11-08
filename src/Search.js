@@ -26,7 +26,9 @@ class Search extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
     handleChange(event) {
-        this.setState({ search: event.target.value });
+        this.setState({ search: event.target.value }, () => {
+            this.props.search(this.state.search);
+        });
     }
     handleClick(event) {
         this.props.search(this.state.search);
